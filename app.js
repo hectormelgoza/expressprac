@@ -1,6 +1,7 @@
 const cors = require('cors');
 const mongoose = require('mongoose');
 const express = require('express');
+
 const app = express();
 
 const msg = () => {console.log('Port is listening')}
@@ -12,6 +13,10 @@ mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTo
 const connection = mongoose.connection;
 
 connection.once('open', () => {console.log('MongoDB connected')})
+
+/* const userRouter = require('./routes/users');
+
+app.use('/user', userRouter); */
 
 app.post('/', (req, res) => {
     res.send('hey');
