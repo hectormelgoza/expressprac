@@ -14,10 +14,8 @@ const connection = mongoose.connection;
 
 connection.once('open', () => {console.log('MongoDB connected')})
 
-/* const userRouter = require('./routes/users');
+const userRouter = require('./routes/users');
+app.use(cors());
+app.use(express.json())
+app.use('/user', userRouter);
 
-app.use('/user', userRouter); */
-
-app.post('/', (req, res) => {
-    res.send('hey');
-});
